@@ -3,6 +3,8 @@ import { GameSettings } from '../types/game';
 import { Settings, Volume2, Music, Zap, Eye, Smartphone, Keyboard, X, Check, Sun, Moon, Palette, DollarSign } from 'lucide-react';
 import { soundManager } from '../services/audio';
 
+import { InstallPwaPrompt } from './InstallPwaPrompt';
+
 interface SettingsModalProps {
   settings: GameSettings;
   onUpdateSettings: (newSettings: Partial<GameSettings>) => void;
@@ -97,6 +99,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
         {/* Scrollable Content */}
         <div className="flex-1 min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-3 sm:space-y-4">
+          {/* PWA App Installation Option */}
+          <InstallPwaPrompt isLight={isLight} variant="card" />
+
           {/* Theme Display (White Screen vs Dark Screen) */}
           <div className={`p-3.5 sm:p-4 rounded-2xl border space-y-2.5 sm:space-y-3 ${
             isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-zinc-900/40 border-white/5'

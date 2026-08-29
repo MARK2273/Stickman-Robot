@@ -66,7 +66,7 @@ export default function App() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return {
       level: 1,
@@ -88,7 +88,7 @@ export default function App() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return HERO_CLASSES;
   });
@@ -113,7 +113,7 @@ export default function App() {
             return initP;
           });
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     return INITIAL_PETS;
   });
@@ -123,7 +123,7 @@ export default function App() {
     if (saved !== null) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return 'cyber_dog'; // Starter pet equipped by default
   });
@@ -146,7 +146,7 @@ export default function App() {
             return initW;
           });
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     return INITIAL_WEAPONS;
   });
@@ -158,7 +158,7 @@ export default function App() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return INITIAL_GEAR;
   });
@@ -182,7 +182,7 @@ export default function App() {
             return baseStage;
           });
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     return STAGES;
   });
@@ -194,7 +194,7 @@ export default function App() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return {
       soundEnabled: true,
@@ -237,7 +237,7 @@ export default function App() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {}
+      } catch (e) { }
     }
     return {
       currentDay: 1,
@@ -271,7 +271,7 @@ export default function App() {
   // Daily Sign-In Bonus Claim Handler
   const handleClaimDailyBonus = (multiplier: 1 | 2) => {
     const currentReward = DAILY_REWARDS.find((r) => r.day === dailyBonusState.currentDay) || DAILY_REWARDS[0];
-    
+
     if (multiplier === 2) {
       // Trigger Rewarded Video Ad
       setActiveRewardedAd({
@@ -662,9 +662,8 @@ export default function App() {
   const isLight = settings.theme === 'light';
 
   return (
-    <div className={`fixed inset-0 w-full h-[100dvh] font-sans overflow-hidden select-none flex flex-col justify-between ${
-      isLight ? 'bg-slate-100 text-slate-900' : 'bg-[#0a0a0a] text-zinc-100'
-    }`}>
+    <div className={`fixed inset-0 w-full h-[100dvh] font-sans overflow-hidden select-none flex flex-col justify-between ${isLight ? 'bg-slate-100 text-slate-900' : 'bg-[#0a0a0a] text-zinc-100'
+      }`}>
       {/* GAMEPLAY ACTIVE CANVAS */}
       {(currentScreen === 'playing' || currentScreen === 'paused') && (
         <GameCanvas
@@ -695,38 +694,32 @@ export default function App() {
       {currentScreen === 'title' && (
         <div
           id="main-title-screen"
-          className={`relative w-full h-full max-h-[100dvh] flex flex-col justify-between p-2 sm:p-3 md:p-4 overflow-y-auto sm:overflow-hidden select-none ${
-            isLight
-              ? 'bg-gradient-to-b from-slate-100 via-sky-50 to-slate-200'
-              : 'bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#020617]'
-          }`}
+          className={`relative w-full h-full max-h-[100dvh] flex flex-col justify-between p-2 sm:p-3 md:p-4 overflow-y-auto sm:overflow-hidden select-none ${isLight
+            ? 'bg-gradient-to-b from-slate-100 via-sky-50 to-slate-200'
+            : 'bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#020617]'
+            }`}
         >
           {/* Ambient Lighting Background Accents */}
-          <div className={`absolute top-1/4 left-1/4 w-[240px] sm:w-[380px] h-[240px] sm:h-[380px] blur-[90px] pointer-events-none rounded-full ${
-            isLight ? 'bg-cyan-400/20' : 'bg-indigo-600/15'
-          }`} />
-          <div className={`absolute bottom-1/4 right-1/4 w-[240px] sm:w-[380px] h-[240px] sm:h-[380px] blur-[90px] pointer-events-none rounded-full ${
-            isLight ? 'bg-rose-400/15' : 'bg-red-600/15'
-          }`} />
-          <div className={`absolute inset-0 [background-size:16px_16px] pointer-events-none ${
-            isLight
-              ? 'bg-[radial-gradient(#0000000d_1px,transparent_1px)] opacity-60'
-              : 'bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] opacity-40'
-          }`} />
+          <div className={`absolute top-1/4 left-1/4 w-[240px] sm:w-[380px] h-[240px] sm:h-[380px] blur-[90px] pointer-events-none rounded-full ${isLight ? 'bg-cyan-400/20' : 'bg-indigo-600/15'
+            }`} />
+          <div className={`absolute bottom-1/4 right-1/4 w-[240px] sm:w-[380px] h-[240px] sm:h-[380px] blur-[90px] pointer-events-none rounded-full ${isLight ? 'bg-rose-400/15' : 'bg-red-600/15'
+            }`} />
+          <div className={`absolute inset-0 [background-size:16px_16px] pointer-events-none ${isLight
+            ? 'bg-[radial-gradient(#0000000d_1px,transparent_1px)] opacity-60'
+            : 'bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] opacity-40'
+            }`} />
 
           {/* TOP SECTION: Header Bar & Player Stats */}
           <div className="z-10 w-full max-w-4xl mx-auto shrink-0 flex flex-col gap-1 sm:gap-1.5">
             {/* Player Stats & Header Action Buttons */}
             <div className="flex flex-wrap items-center justify-between gap-1 w-full">
               {/* Player Level & Currency Tag */}
-              <div className={`flex items-center gap-1.5 sm:gap-2.5 backdrop-blur-md border px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-2xl shadow-sm ${
-                isLight
-                  ? 'bg-white/90 border-slate-300 shadow-slate-300/40 text-slate-800'
-                  : 'bg-black/75 border-white/10 text-zinc-100'
-              }`}>
-                <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-md font-black text-[8px] sm:text-[10px] flex items-center justify-center border font-mono ${
-                  isLight ? 'bg-slate-100 text-amber-600 border-slate-300' : 'bg-white/10 text-amber-400 border-white/10'
+              <div className={`flex items-center gap-1.5 sm:gap-2.5 backdrop-blur-md border px-2 sm:px-3 py-0.5 sm:py-1 rounded-lg sm:rounded-2xl shadow-sm ${isLight
+                ? 'bg-white/90 border-slate-300 shadow-slate-300/40 text-slate-800'
+                : 'bg-black/75 border-white/10 text-zinc-100'
                 }`}>
+                <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-md font-black text-[8px] sm:text-[10px] flex items-center justify-center border font-mono ${isLight ? 'bg-slate-100 text-amber-600 border-slate-300' : 'bg-white/10 text-amber-400 border-white/10'
+                  }`}>
                   LV.{playerStats.level}
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-xs font-mono font-bold">
@@ -737,11 +730,10 @@ export default function App() {
                   <span className={isLight ? 'text-slate-300' : 'text-zinc-700'}>|</span>
                   <span className="text-rose-500">💎{playerStats.rubies}</span>
                   {playerStats.statPoints > 0 && (
-                    <span className={`px-1 py-0.2 rounded text-[8px] sm:text-[9px] font-bold animate-pulse border ${
-                      isLight
-                        ? 'bg-purple-100 text-purple-700 border-purple-300'
-                        : 'bg-purple-500/20 text-purple-300 border-purple-500/40'
-                    }`}>
+                    <span className={`px-1 py-0.2 rounded text-[8px] sm:text-[9px] font-bold animate-pulse border ${isLight
+                      ? 'bg-purple-100 text-purple-700 border-purple-300'
+                      : 'bg-purple-500/20 text-purple-300 border-purple-500/40'
+                      }`}>
                       +{playerStats.statPoints}P
                     </span>
                   )}
@@ -760,13 +752,12 @@ export default function App() {
                     soundManager.playClick();
                     setShowDailyBonus(true);
                   }}
-                  className={`relative px-1.5 sm:px-2.5 py-0.5 sm:py-1 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 flex items-center gap-1 font-bold text-[9px] sm:text-xs ${
-                    !hasClaimedToday
-                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-black border-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.5)] animate-pulse'
-                      : isLight
+                  className={`relative px-1.5 sm:px-2.5 py-0.5 sm:py-1 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 flex items-center gap-1 font-bold text-[9px] sm:text-xs ${!hasClaimedToday
+                    ? 'bg-gradient-to-r from-amber-500 to-yellow-400 text-black border-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.5)] animate-pulse'
+                    : isLight
                       ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
                       : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
-                  }`}
+                    }`}
                   title="Daily Sign-In Bonus (2X with Ad!)"
                 >
                   <Calendar className="w-3 h-3 text-amber-900 sm:text-amber-500" />
@@ -796,11 +787,10 @@ export default function App() {
                 <button
                   id="main-theme-toggle-btn"
                   onClick={handleToggleTheme}
-                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 flex items-center gap-0.5 font-bold text-[9px] sm:text-xs ${
-                    isLight
-                      ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
-                      : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
-                  }`}
+                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 flex items-center gap-0.5 font-bold text-[9px] sm:text-xs ${isLight
+                    ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
+                    : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
+                    }`}
                   title="Toggle White / Dark Screen Theme"
                 >
                   {isLight ? (
@@ -818,11 +808,10 @@ export default function App() {
                     setSettings((prev) => ({ ...prev, soundEnabled: next }));
                     soundManager.setSoundSettings(next, settings.soundVolume);
                   }}
-                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 ${
-                    isLight
-                      ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
-                      : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
-                  }`}
+                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 ${isLight
+                    ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
+                    : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
+                    }`}
                   title="Toggle Audio"
                 >
                   <Volume2 className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${settings.soundEnabled ? 'text-amber-500' : isLight ? 'text-slate-400' : 'text-zinc-600'}`} />
@@ -831,11 +820,10 @@ export default function App() {
                 <button
                   id="main-settings-btn"
                   onClick={() => setShowSettings(true)}
-                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 ${
-                    isLight
-                      ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
-                      : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
-                  }`}
+                  className={`p-1 sm:p-1.5 border rounded-lg sm:rounded-xl transition backdrop-blur-md cursor-pointer shadow-sm active:scale-95 ${isLight
+                    ? 'bg-white/90 hover:bg-slate-200 border-slate-300 text-slate-800'
+                    : 'bg-black/75 hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
+                    }`}
                   title="Open Game Settings"
                 >
                   <SettingsIcon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isLight ? 'text-slate-700' : 'text-zinc-300'}`} />
@@ -847,42 +835,37 @@ export default function App() {
           {/* HERO DISPLAY / GAME LOGO / CENTER PIECE */}
           <div className="flex flex-col items-center justify-center my-auto z-10 text-center py-1 sm:py-2 shrink-0">
             {/* Sub-badge */}
-            <div className={`flex items-center gap-1 px-2 py-0.5 rounded-full border text-[8px] sm:text-[9px] font-black tracking-widest uppercase mb-1 shadow-sm backdrop-blur-md ${
-              isLight
-                ? 'bg-white/90 border-slate-300 text-red-600'
-                : 'bg-white/5 border-white/10 text-amber-400'
-            }`}>
+            <div className={`flex items-center gap-1 px-2 py-0.5 rounded-full border text-[8px] sm:text-[9px] font-black tracking-widest uppercase mb-1 shadow-sm backdrop-blur-md ${isLight
+              ? 'bg-white/90 border-slate-300 text-red-600'
+              : 'bg-white/5 border-white/10 text-amber-400'
+              }`}>
               <Bot className="w-2.5 h-2.5 text-cyan-500 animate-pulse" />
               <span>CYBER ROBOT DEFENSE RPG</span>
             </div>
 
             {/* Main Title - Scaled for Mobile Viewports */}
-            <h1 className={`text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-transparent bg-clip-text drop-shadow-md leading-tight ${
-              isLight
-                ? 'bg-gradient-to-r from-slate-900 via-red-600 to-indigo-900'
-                : 'bg-gradient-to-r from-zinc-100 via-amber-200 to-zinc-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.8)]'
-            }`}>
+            <h1 className={`text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-transparent bg-clip-text drop-shadow-md leading-tight ${isLight
+              ? 'bg-gradient-to-r from-slate-900 via-red-600 to-indigo-900'
+              : 'bg-gradient-to-r from-zinc-100 via-amber-200 to-zinc-400 drop-shadow-[0_4px_14px_rgba(0,0,0,0.8)]'
+              }`}>
               STICKMAN GUNNER: ROBOT WARS
             </h1>
-            <p className={`text-[10px] sm:text-xs max-w-sm sm:max-w-md mt-0.5 leading-tight font-normal px-2 hidden xs:block ${
-              isLight ? 'text-slate-600 font-medium' : 'text-zinc-400'
-            }`}>
+            <p className={`text-[10px] sm:text-xs max-w-sm sm:max-w-md mt-0.5 leading-tight font-normal px-2 hidden xs:block ${isLight ? 'text-slate-600 font-medium' : 'text-zinc-400'
+              }`}>
               Equip weapons, level up cybernetic skills, and defend against rogue combat mechs.
             </p>
 
             {/* Hero & Pet Companion Showcase Row */}
             <div className="mt-1.5 sm:mt-2.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 max-w-xl">
               {/* Selected Hero Showcase Pill */}
-              <div className={`flex items-center gap-1.5 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md ${
-                isLight
-                  ? 'bg-white/90 border-slate-300 text-slate-900'
-                  : 'bg-black/75 border-white/10 text-zinc-100'
-              }`}>
+              <div className={`flex items-center gap-1.5 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md ${isLight
+                ? 'bg-white/90 border-slate-300 text-slate-900'
+                : 'bg-black/75 border-white/10 text-zinc-100'
+                }`}>
                 <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: activeHero.color }} />
                 <div className="text-left">
-                  <span className={`text-[7px] sm:text-[8px] font-bold uppercase tracking-wider block leading-none ${
-                    isLight ? 'text-slate-500' : 'text-zinc-500'
-                  }`}>
+                  <span className={`text-[7px] sm:text-[8px] font-bold uppercase tracking-wider block leading-none ${isLight ? 'text-slate-500' : 'text-zinc-500'
+                    }`}>
                     HERO (LV.{activeHero.level})
                   </span>
                   <span className="text-[11px] sm:text-xs font-black leading-tight">{activeHero.name}</span>
@@ -890,11 +873,10 @@ export default function App() {
                 <button
                   id="main-change-hero-btn"
                   onClick={() => setShowHeroSelect(true)}
-                  className={`ml-1 px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded transition cursor-pointer border active:scale-95 ${
-                    isLight
-                      ? 'bg-cyan-100 hover:bg-cyan-200 text-cyan-800 border-cyan-300'
-                      : 'bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/40'
-                  }`}
+                  className={`ml-1 px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded transition cursor-pointer border active:scale-95 ${isLight
+                    ? 'bg-cyan-100 hover:bg-cyan-200 text-cyan-800 border-cyan-300'
+                    : 'bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/40'
+                    }`}
                 >
                   HEROES
                 </button>
@@ -902,11 +884,10 @@ export default function App() {
 
               {/* Active Pet Companion Showcase Pill */}
               {activePet ? (
-                <div className={`flex items-center gap-1.5 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md ${
-                  isLight
-                    ? 'bg-white/90 border-slate-300 text-slate-900'
-                    : 'bg-black/75 border-white/10 text-zinc-100'
-                }`}>
+                <div className={`flex items-center gap-1.5 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md ${isLight
+                  ? 'bg-white/90 border-slate-300 text-slate-900'
+                  : 'bg-black/75 border-white/10 text-zinc-100'
+                  }`}>
                   <div
                     className="w-4 h-4 rounded-md flex items-center justify-center text-[10px] shrink-0 border"
                     style={{ backgroundColor: `${activePet.color}25`, borderColor: activePet.color }}
@@ -914,9 +895,8 @@ export default function App() {
                     {activePet.icon}
                   </div>
                   <div className="text-left">
-                    <span className={`text-[7px] sm:text-[8px] font-bold uppercase tracking-wider block leading-none ${
-                      isLight ? 'text-slate-500' : 'text-zinc-500'
-                    }`}>
+                    <span className={`text-[7px] sm:text-[8px] font-bold uppercase tracking-wider block leading-none ${isLight ? 'text-slate-500' : 'text-zinc-500'
+                      }`}>
                       PET (LV.{activePet.level}) +{activePet.playerHpBonusPercent}%HP
                     </span>
                     <span className="text-[11px] sm:text-xs font-black text-rose-400 leading-tight">{activePet.name}</span>
@@ -924,11 +904,10 @@ export default function App() {
                   <button
                     id="main-change-pet-btn"
                     onClick={() => setShowPets(true)}
-                    className={`ml-1 px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded transition cursor-pointer border active:scale-95 ${
-                      isLight
-                        ? 'bg-rose-100 hover:bg-rose-200 text-rose-800 border-rose-300'
-                        : 'bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/40'
-                    }`}
+                    className={`ml-1 px-1.5 py-0.5 text-[8px] sm:text-[9px] font-bold rounded transition cursor-pointer border active:scale-95 ${isLight
+                      ? 'bg-rose-100 hover:bg-rose-200 text-rose-800 border-rose-300'
+                      : 'bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border-rose-500/40'
+                      }`}
                   >
                     PETS 🐾
                   </button>
@@ -937,11 +916,10 @@ export default function App() {
                 <button
                   id="main-open-pets-btn"
                   onClick={() => setShowPets(true)}
-                  className={`flex items-center gap-1 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md transition cursor-pointer active:scale-95 ${
-                    isLight
-                      ? 'bg-rose-50 hover:bg-rose-100 border-rose-200 text-rose-800'
-                      : 'bg-rose-950/40 hover:bg-rose-950/60 border-rose-500/30 text-rose-300'
-                  }`}
+                  className={`flex items-center gap-1 border px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl shadow-sm backdrop-blur-md transition cursor-pointer active:scale-95 ${isLight
+                    ? 'bg-rose-50 hover:bg-rose-100 border-rose-200 text-rose-800'
+                    : 'bg-rose-950/40 hover:bg-rose-950/60 border-rose-500/30 text-rose-300'
+                    }`}
                 >
                   <span className="text-xs">🐾</span>
                   <span className="text-[9px] sm:text-[10px] font-bold">EQUIP PET (+HP)</span>
@@ -950,102 +928,100 @@ export default function App() {
             </div>
           </div>
 
-          {/* BOTTOM MENU NAVIGATION BAR: Responsive 1+5 Layout for Mobile & Desktop */}
-          <div className="flex flex-col gap-1 sm:gap-1.5 z-10 max-w-3xl mx-auto w-full shrink-0 pb-1">
-            {/* Primary Action: START BATTLE Button */}
+          {/* Prominent Explicit PWA Install / Download Card */}
+          <div className="w-full max-w-sm sm:max-w-md mx-auto my-1">
+            <InstallPwaPrompt isLight={isLight} variant="card" />
+          </div>
+
+          {/* Primary Action: START BATTLE Button */}
+          <button
+            id="main-start-battle-btn"
+            onClick={handleStartGame}
+            className="w-full py-2 sm:py-2.5 bg-gradient-to-r from-red-600 via-red-500 to-rose-600 hover:from-red-500 hover:to-rose-500 border-b-3 border-red-950 text-white font-black rounded-xl sm:rounded-2xl shadow-[0_4px_16px_rgba(220,38,38,0.35)] transition active:scale-98 flex items-center justify-center gap-1.5 cursor-pointer text-xs sm:text-sm uppercase tracking-wider"
+          >
+            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" />
+            <span>START BATTLE (DEPLOY)</span>
+          </button>
+
+          {/* Secondary 5 Nav Options Grid */}
+          <div className="grid grid-cols-5 gap-1">
+            {/* Campaign Map */}
             <button
-              id="main-start-battle-btn"
-              onClick={handleStartGame}
-              className="w-full py-2 sm:py-2.5 bg-gradient-to-r from-red-600 via-red-500 to-rose-600 hover:from-red-500 hover:to-rose-500 border-b-3 border-red-950 text-white font-black rounded-xl sm:rounded-2xl shadow-[0_4px_16px_rgba(220,38,38,0.35)] transition active:scale-98 flex items-center justify-center gap-1.5 cursor-pointer text-xs sm:text-sm uppercase tracking-wider"
+              id="main-campaign-map-btn"
+              onClick={() => setShowStageSelect(true)}
+              className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${isLight
+                ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-amber-500 text-slate-800'
+                : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-amber-400/40 text-zinc-300 hover:text-white'
+                }`}
             >
-              <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" />
-              <span>START BATTLE (DEPLOY)</span>
+              <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+              <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">MAP</span>
             </button>
 
-            {/* Secondary 5 Nav Options Grid */}
-            <div className="grid grid-cols-5 gap-1">
-              {/* Campaign Map */}
-              <button
-                id="main-campaign-map-btn"
-                onClick={() => setShowStageSelect(true)}
-                className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${
-                  isLight
-                    ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-amber-500 text-slate-800'
-                    : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-amber-400/40 text-zinc-300 hover:text-white'
+            {/* Armory & Guns */}
+            <button
+              id="main-armory-btn"
+              onClick={() => setShowArmory(true)}
+              className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${isLight
+                ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-cyan-500 text-slate-800'
+                : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-cyan-400/40 text-zinc-300 hover:text-white'
                 }`}
-              >
-                <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">MAP</span>
-              </button>
+            >
+              <Crosshair className="w-3.5 h-3.5 text-cyan-500 shrink-0" />
+              <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">ARMORY</span>
+            </button>
 
-              {/* Armory & Guns */}
-              <button
-                id="main-armory-btn"
-                onClick={() => setShowArmory(true)}
-                className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${
-                  isLight
-                    ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-cyan-500 text-slate-800'
-                    : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-cyan-400/40 text-zinc-300 hover:text-white'
+            {/* Pets & Companions */}
+            <button
+              id="main-pets-btn"
+              onClick={() => setShowPets(true)}
+              className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm relative min-w-0 ${isLight
+                ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-rose-500 text-slate-800'
+                : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-rose-400/40 text-zinc-300 hover:text-white'
                 }`}
-              >
-                <Crosshair className="w-3.5 h-3.5 text-cyan-500 shrink-0" />
-                <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">ARMORY</span>
-              </button>
+            >
+              <span className="text-xs sm:text-sm shrink-0 leading-none">🐾</span>
+              <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight text-rose-400 truncate">PETS</span>
+              {activePet && (
+                <span className="absolute -top-0.5 -right-0.5 bg-rose-500 text-white font-black text-[6px] w-3 h-3 rounded-full flex items-center justify-center shadow">
+                  ✓
+                </span>
+              )}
+            </button>
 
-              {/* Pets & Companions */}
-              <button
-                id="main-pets-btn"
-                onClick={() => setShowPets(true)}
-                className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm relative min-w-0 ${
-                  isLight
-                    ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-rose-500 text-slate-800'
-                    : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-rose-400/40 text-zinc-300 hover:text-white'
+            {/* Stats & Upgrades */}
+            <button
+              id="main-stats-btn"
+              onClick={() => setShowStats(true)}
+              className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm relative min-w-0 ${isLight
+                ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-purple-500 text-slate-800'
+                : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-purple-400/40 text-zinc-300 hover:text-white'
                 }`}
-              >
-                <span className="text-xs sm:text-sm shrink-0 leading-none">🐾</span>
-                <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight text-rose-400 truncate">PETS</span>
-                {activePet && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-rose-500 text-white font-black text-[6px] w-3 h-3 rounded-full flex items-center justify-center shadow">
-                    ✓
-                  </span>
-                )}
-              </button>
+            >
+              <Award className="w-3.5 h-3.5 text-purple-500 shrink-0" />
+              <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">STATS</span>
+              {playerStats.statPoints > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-purple-500 text-white font-black text-[6px] w-3 h-3 rounded-full flex items-center justify-center shadow animate-pulse">
+                  +{playerStats.statPoints}
+                </span>
+              )}
+            </button>
 
-              {/* Stats & Upgrades */}
-              <button
-                id="main-stats-btn"
-                onClick={() => setShowStats(true)}
-                className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm relative min-w-0 ${
-                  isLight
-                    ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-purple-500 text-slate-800'
-                    : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-purple-400/40 text-zinc-300 hover:text-white'
+            {/* Hero Classes & Upgrades */}
+            <button
+              id="main-heroes-btn"
+              onClick={() => setShowHeroSelect(true)}
+              className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${isLight
+                ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-emerald-500 text-slate-800'
+                : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-emerald-400/40 text-zinc-300 hover:text-white'
                 }`}
-              >
-                <Award className="w-3.5 h-3.5 text-purple-500 shrink-0" />
-                <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">STATS</span>
-                {playerStats.statPoints > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-purple-500 text-white font-black text-[6px] w-3 h-3 rounded-full flex items-center justify-center shadow animate-pulse">
-                    +{playerStats.statPoints}
-                  </span>
-                )}
-              </button>
-
-              {/* Hero Classes & Upgrades */}
-              <button
-                id="main-heroes-btn"
-                onClick={() => setShowHeroSelect(true)}
-                className={`py-1.5 sm:py-2 px-1 border backdrop-blur-md rounded-xl transition cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-95 shadow-sm min-w-0 ${
-                  isLight
-                    ? 'bg-white/90 hover:bg-slate-50 border-slate-300 hover:border-emerald-500 text-slate-800'
-                    : 'bg-black/75 hover:bg-white/10 border-white/10 hover:border-emerald-400/40 text-zinc-300 hover:text-white'
-                }`}
-              >
-                <Users className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">HEROES</span>
-              </button>
-            </div>
+            >
+              <Users className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+              <span className="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-tight truncate">HEROES</span>
+            </button>
           </div>
         </div>
+        // </div>
       )}
 
       {/* PAUSE MODAL */}
@@ -1084,10 +1060,10 @@ export default function App() {
           onNextStage={
             selectedStageId < stages.length
               ? () => {
-                  setSelectedStageId((prev) => prev + 1);
-                  soundManager.playSkill();
-                  setCurrentScreen('playing');
-                }
+                setSelectedStageId((prev) => prev + 1);
+                soundManager.playSkill();
+                setCurrentScreen('playing');
+              }
               : undefined
           }
           onOpenArmory={() => {
@@ -1257,6 +1233,9 @@ export default function App() {
           }}
         />
       )}
+
+      {/* Floating PWA Install Notification */}
+      <InstallPwaPrompt isLight={isLight} variant="banner" />
     </div>
   );
 }
