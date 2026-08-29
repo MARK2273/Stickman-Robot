@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Stickman \u0026 Gun 2: Remastered",
+  "description": "An action-packed 2D stickman gunner defense RPG with multiple hero classes, an extensive upgradeable arsenal, boss raids, elemental skills, and intense wave survival combat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
